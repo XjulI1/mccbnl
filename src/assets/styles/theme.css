@@ -1,0 +1,38 @@
+:root {
+  /* Variables pour le thème clair */
+  --background-color: #fefefe;
+  --text-color: #333333;
+  --primary-color: #4a76a8;
+  --secondary-color: #e9ecef;
+  --border-color: #dee2e6;
+}
+
+/* Détection automatique du thème sombre en fonction des préférences système */
+@media (prefers-color-scheme: dark) {
+  :root {
+    /* Variables pour le thème sombre */
+    --background-color: #121212;
+    --text-color: #e0e0e0;
+    --primary-color: #5b9bd5;
+    --secondary-color: #2d2d2d;
+    --border-color: #444444;
+  }
+}
+
+/* Application des variables dans le document */
+body {
+  background-color: var(--background-color);
+  color: var(--text-color);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+a {
+  color: var(--primary-color);
+}
+
+.card, .container, .section {
+  background-color: var(--secondary-color);
+  border-color: var(--border-color);
+}
+
+/* Vous pouvez ajouter d'autres éléments spécifiques à votre site ici */

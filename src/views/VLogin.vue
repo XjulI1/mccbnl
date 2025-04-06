@@ -72,26 +72,28 @@ const handleSubmit = async () => {
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-  background-color: #f5f5f5;
+  background-color: var(--background-color);
 }
 
 .login-container {
-  background-color: white;
+  background-color: var(--secondary-color);
   padding: 2rem;
   border-radius: 8px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   width: 100%;
   max-width: 400px;
   text-align: center;
+  border: 1px solid var(--border-color);
 }
 
 h1 {
   margin-bottom: 0.5rem;
-  color: #333;
+  color: var(--text-color);
 }
 
 .subtitle {
-  color: #666;
+  color: var(--text-color);
+  opacity: 0.7;
   margin-bottom: 2rem;
 }
 
@@ -113,7 +115,7 @@ h1 {
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(255, 255, 255, 0.8);
+  background-color: rgba(var(--background-color), 0.8);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -124,7 +126,7 @@ h1 {
   width: 40px;
   height: 40px;
   border: 4px solid rgba(0, 0, 0, 0.1);
-  border-left-color: #4caf50;
+  border-left-color: var(--primary-color);
   border-radius: 50%;
   animation: spin 1s linear infinite;
 }

@@ -24,26 +24,27 @@
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-  background-color: #f5f5f5;
+  background-color: var(--background-color);
 }
 
 .about-container {
-  background-color: white;
+  background-color: var(--secondary-color);
   padding: 2rem;
   border-radius: 8px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border: 1px solid var(--border-color);
   width: 100%;
   max-width: 800px;
 }
 
 h1 {
   margin-bottom: 1.5rem;
-  color: #333;
+  color: var(--text-color);
   text-align: center;
 }
 
 h2 {
-  color: #444;
+  color: var(--text-color);
   margin-bottom: 1rem;
 }
 
@@ -56,7 +57,8 @@ h2 {
 }
 
 .contributors p {
-  color: #666;
+  color: var(--text-color);
+  opacity: 0.8;
   line-height: 1.6;
 }
 </style>

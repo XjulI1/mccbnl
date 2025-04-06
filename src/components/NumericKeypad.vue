@@ -50,7 +50,7 @@ onUnmounted(() => {
     </div>
     <div class="keypad-grid">
       <button
-        v-for="digit in digitsArray"
+        v-for="digit in digitsArray.slice(0, 9)"
         :key="digit"
         class="digit-button"
         @click="onDigitPress(digit)"
@@ -94,13 +94,13 @@ onUnmounted(() => {
   width: 20px;
   height: 20px;
   border-radius: 50%;
-  border: 2px solid #ccc;
+  border: 2px solid var(--border-color);
   transition: all 0.2s ease;
 }
 
 .code-dot.filled {
-  background-color: #333;
-  border-color: #333;
+  background-color: var(--text-color);
+  border-color: var(--primary-color);
   transform: scale(1.1);
 }
 
@@ -109,7 +109,8 @@ onUnmounted(() => {
   border: none;
   font-size: 1.5rem;
   cursor: pointer;
-  color: #666;
+  color: var(--text-color);
+  opacity: 0.8;
   transition:
     transform 0.15s ease,
     opacity 0.15s ease;
@@ -120,7 +121,7 @@ onUnmounted(() => {
 }
 
 .delete-button:disabled {
-  color: #ccc;
+  opacity: 0.3;
   cursor: not-allowed;
 }
 
@@ -138,9 +139,10 @@ onUnmounted(() => {
 .submit-button {
   padding: 15px;
   font-size: 1.2rem;
-  border: 1px solid #ccc;
+  border: 1px solid var(--border-color);
   border-radius: 5px;
-  background-color: #f5f5f5;
+  background-color: var(--secondary-color);
+  color: var(--text-color);
   cursor: pointer;
   transition: all 0.2s ease;
   position: relative;
@@ -149,13 +151,13 @@ onUnmounted(() => {
 
 .digit-button:hover,
 .submit-button:hover {
-  background-color: #e0e0e0;
+  background-color: var(--border-color);
 }
 
 .digit-button:active,
 .submit-button:active {
   transform: scale(0.95);
-  background-color: #d5d5d5;
+  background-color: var(--border-color);
 }
 
 /* Animation de l'effet d'onde */
@@ -169,7 +171,7 @@ onUnmounted(() => {
   top: 0;
   left: 0;
   pointer-events: none;
-  background-image: radial-gradient(circle, rgba(0, 0, 0, 0.2) 10%, transparent 10.01%);
+  background-image: radial-gradient(circle, rgba(255, 255, 255, 0.2) 10%, transparent 10.01%);
   background-repeat: no-repeat;
   background-position: 50%;
   transform: scale(10, 10);
@@ -188,13 +190,13 @@ onUnmounted(() => {
 
 .submit-button {
   grid-column: span 3;
-  background-color: #4caf50;
+  background-color: var(--primary-color);
   color: white;
   margin-top: 10px;
 }
 
 .submit-button:disabled {
-  background-color: #a5d6a7;
+  opacity: 0.5;
   cursor: not-allowed;
   transform: none;
 }
@@ -204,8 +206,7 @@ onUnmounted(() => {
 }
 
 .digit-button:disabled {
-  background-color: #f5f5f5;
-  color: #ccc;
+  opacity: 0.5;
   cursor: not-allowed;
   transform: none;
 }
