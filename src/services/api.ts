@@ -42,3 +42,29 @@ export async function whoAmI(): Promise<string> {
 
   return response.json()
 }
+
+/**
+ * Vérifie si le token d'authentification est toujours valide via la route exists
+ * @returns true si le token est valide, false sinon
+ */
+export async function checkTokenValidity(): Promise<boolean> {
+  try {
+    const API_URL = getApiUrl()
+    const token = getItem(LocalStorageKeys.AUTH_TOKEN)
+
+    if (!token) {
+      return false
+    }
+
+    const response = await fetch(`${API_URL}/users/exists`, {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    })
+
+    return response.ok
+  } catch (error) {
+    console.error('Erreur lors de la vérification du token:', error)
+    return false
+  }
+}

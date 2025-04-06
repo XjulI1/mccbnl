@@ -5,6 +5,7 @@
   --primary-color: #4a76a8;
   --secondary-color: #e9ecef;
   --border-color: #dee2e6;
+  --min-height: 80vh;
 }
 
 /* Détection automatique du thème sombre en fonction des préférences système */
@@ -16,6 +17,7 @@
     --primary-color: #5b9bd5;
     --secondary-color: #2d2d2d;
     --border-color: #444444;
+    --min-height: 80vh;
   }
 }
 
@@ -24,6 +26,7 @@ body {
   background-color: var(--background-color);
   color: var(--text-color);
   transition: background-color 0.3s ease, color 0.3s ease;
+  min-height: var(--min-height);
 }
 
 a {

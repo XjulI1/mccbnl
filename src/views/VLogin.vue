@@ -71,7 +71,7 @@ const handleSubmit = async () => {
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: 100vh;
+  min-height: var(--min-height);
   background-color: var(--background-color);
 }
 

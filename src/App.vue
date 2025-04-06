@@ -1,9 +1,15 @@
 <script setup lang="ts">
 import { RouterView } from 'vue-router'
+import NavBar from './components/NavBar.vue'
 </script>
 
 <template>
-  <RouterView />
+  <div class="app-container">
+    <NavBar />
+    <main class="main-content">
+      <RouterView />
+    </main>
+  </div>
 </template>
 
 <style>
@@ -15,7 +21,6 @@ body {
   padding: 0;
   background-color: var(--background-color);
   color: var(--text-color);
-  min-height: 100vh;
 }
 
 * {
@@ -34,6 +39,15 @@ a:hover {
 
 button {
   font-family: inherit;
+}
+
+.app-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.main-content {
+  flex: 1;
 }
 </style>
 

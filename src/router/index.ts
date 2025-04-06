@@ -1,7 +1,8 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '../views/VHome.vue'
 import LoginView from '../views/VLogin.vue'
-import { getItem, LocalStorageKeys } from '../utils/localStorage'
+import SettingsView from '../views/VSettings.vue'
+import { authHelper } from '../utils/authHelper'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -24,17 +25,24 @@ const router = createRouter({
       component: LoginView,
       meta: { guest: true },
     },
+    {
+      path: '/settings',
+      name: 'settings',
+      component: SettingsView,
+      meta: { requiresAuth: true },
+    },
   ],
 })
 
 // Navigation guard to check authentication
-router.beforeEach((to, from, next) => {
-  const isAuthenticated = !!getItem(LocalStorageKeys.AUTH_TOKEN)
+router.beforeEach(async (to, from, next) => {
+  await authHelper.checkAuthentication()
+  const isAuthenticated = authHelper.isAuthenticated.value
 
   // Routes that require authentication
   if (to.matched.some((record) => record.meta.requiresAuth)) {
     if (!isAuthenticated) {
-      // Redirect to login page if not authenticated
+      // Redirect to login page if not authenticated or token invalid
       next({ name: 'login' })
     } else {
       next()
@@ -43,7 +51,7 @@ router.beforeEach((to, from, next) => {
   // Routes that are for guests only (like login)
   else if (to.matched.some((record) => record.meta.guest)) {
     if (isAuthenticated) {
-      // Redirect to home if already authenticated
+      // Redirect to home if already authenticated with valid token
       next({ name: 'home' })
     } else {
       next()
