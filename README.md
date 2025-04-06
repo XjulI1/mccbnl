@@ -2,6 +2,10 @@
 
 This template should help get you started developing with Vue 3 in Vite.
 
+## Contributeurs
+
+Ce projet est le résultat d'une collaboration entre un développeur humain et Claude 3.7 Sonnet (au travers de Github Copilot et VS Code), un assistant IA. Cette approche collaborative permet de combiner l'expertise humaine et les capacités d'intelligence artificielle pour optimiser le développement.
+
 ## Recommended IDE Setup
 
 [VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
