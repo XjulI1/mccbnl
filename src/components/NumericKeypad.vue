@@ -141,7 +141,7 @@ onUnmounted(() => {
   font-size: 1.2rem;
   border: 1px solid var(--border-color);
   border-radius: 5px;
-  background-color: var(--secondary-color);
+  background-color: var(--keyboard-number-color);
   color: var(--text-color);
   cursor: pointer;
   transition: all 0.2s ease;

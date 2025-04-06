@@ -4,6 +4,7 @@
   --text-color: #333333;
   --primary-color: #4a76a8;
   --secondary-color: #e9ecef;
+  --keyboard-number-color: #f8f9fa;
   --border-color: #dee2e6;
   --min-height: 80vh;
 }
@@ -16,6 +17,7 @@
     --text-color: #e0e0e0;
     --primary-color: #5b9bd5;
     --secondary-color: #2d2d2d;
+    --keyboard-number-color: #1c1c1c;
     --border-color: #444444;
     --min-height: 80vh;
   }
